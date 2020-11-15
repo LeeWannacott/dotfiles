@@ -1,12 +1,11 @@
-
-set nocompatible           " Vim defaults rather than vi ones. Keep at top.
-filetype plugin indent on  " Enable filetype-specific settings.
-syntax on                  " Enable syntax highlighting.
-set backspace=2            " Make the backspace behave as most applications.
-set autoindent             " Use current indent for new lines.
-set display=lastline       " Show as much of the line as will fit.
-set wildmenu               " Better tab completion in the commandline.
-set wildmode=list:longest  " List all matches and complete to the longest match.
+set nocompatible           " vim defaults rather than vi ones. keep at top
+filetype plugin indent on  " enable filetype-specific settings
+syntax on                  " enable syntax highlighting.
+set backspace=2            " make the backspace behave as most applications.
+set autoindent             " use current indent for new lines. What do you think that there is a time.
+set display=lastline       " show as much of the line as will fit.
+set wildmenu               " better tab completion in the commandline.
+set wildmode=list:longest  " list all matches and complete to the longest match.
 set showcmd                " Show (partial) command in bottom-right.
 set smarttab               " Backspace removes 'shiftwidth' worth of spaces.
 set wrap                   " Wrap long lines.
@@ -20,36 +19,44 @@ set softtabstop=-1         " Use same value as 'shiftwidth'.
 set showcmd                " Display current key input in status menu.
 set hlsearch               " Highlight all words with *.
 set number
-hi LineNr term=bold ctermfg=DarkMagenta
 set relativenumber 
+set history=1000
+set title
+hi LineNr ctermfg=DarkCyan ctermbg=Black
 
-:nnoremap l W
-:nnoremap L E 
-
+:nnoremap l w 
 :nnoremap i k
 :nnoremap k j
 :nnoremap j b
-:nnoremap J B 
 
+:nnoremap J h
+:vnoremap J h
 :nnoremap n o
 :nnoremap N O 
 :nnoremap o n 
- 
 :nnoremap O N 
+ 
+:nnoremap m a
 :nnoremap a i
+:nnoremap h 0
+:nnoremap H j
  
 :nnoremap ; $
-:nnoremap h 0 
 :nnoremap K }
 :nnoremap I {
+:nnoremap ' e
+:vnoremap K }
+:vnoremap I {
+:nnoremap L l
+:vnoremap L l
  
 :vnoremap j B
-:vnoremap i k
-:vnoremap l e 
+:vnoremap l E 
 :vnoremap k j
 :vnoremap h 0
 :vnoremap ; $
-
-:nnoremap U <C-r>
-
+:vnoremap i k 
  
+:nnoremap U <C-r>
+:nnoremap A I
+:nnoremap M A 
