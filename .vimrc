@@ -1,4 +1,3 @@
-
 set nocompatible           " vim defaults rather than vi ones. keep at top
 filetype plugin indent on  " enable filetype-specific settings
 syntax on                  " enable syntax highlighting.
@@ -33,13 +32,35 @@ set relativenumber
 set history=1000
 set noerrorbells
 set title
-
-set spell spelllang=en_us
 hi LineNr ctermfg=DarkCyan ctermbg=Black
-
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 
 
+" REMAPPINGS
 :nnoremap <F2> :Vex <ENTER> 
+:nnoremap <F4> :NERDTreeToggle <ENTER> 
 
-:nnoremap <F4> :w <ENTER> 
+" PLUGINS vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'ryanoasis/vim-devicons'
+set encoding=UTF-8
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+map <F8> :Files<CR>
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver','coc-python']
+Plug 'scrooloose/nerdcommenter'
+" Plug 'davidhalter/jedi-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
+call plug#end()
+
