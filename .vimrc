@@ -30,6 +30,8 @@ set relativenumber
 set history=1000
 set noerrorbells
 set title
+set showtabline=2
+hi TabLineFill ctermfg=black ctermbg=DarkGreen
 hi LineNr ctermfg=36 ctermbg=Black
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 
@@ -76,6 +78,9 @@ map <F8> :Files<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver','coc-python']
 Plug 'scrooloose/nerdcommenter'
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 Plug 'airblade/vim-gitgutter'
 highlight GitGutterAdd  ctermfg=46 
 highlight GitGutterChange guifg=#4e4e4e
