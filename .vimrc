@@ -1,14 +1,14 @@
 set nocompatible           " vim defaults rather than vi ones. keep at top
-filetype plugin indent on  " enable filetype-specific settings
 syntax on                  " enable syntax highlighting.
+set autoindent             " use current indent for new lines. 
+filetype plugin indent on
 set clipboard+=unnamedplus
-set backspace=2            " make the backspace behave as most applications.
-set list lcs=tab:\|\  
+set backspace=2            " make the backspace behave as most applications
 set display=lastline       " show as much of the line as will fit.
 set wildmenu               " better tab completion in the commandline.
 set wildmode=list:longest  " list all matches and complete to the longest match.
 set showcmd                " Show (partial) command in bottom-right.
-set smarttab               " Backspace removes 'shiftwidth' worth of spaces.
+set smarttab               " Backspace removes 'shiftwidth' worth of spaces
 set smartcase
 set noswapfile
 set undodir=~/.vim/undodir
@@ -23,8 +23,6 @@ set shiftwidth=4          " Use same value as 'tabstop'.
 set expandtab
 set softtabstop=4
 set showcmd                " Display current key input in status menu.
-set autoindent             " use current indent for new lines. 
-set smartindent
 set incsearch
 set hlsearch               " Highlight all words with *.
 set number
@@ -32,17 +30,38 @@ set relativenumber
 set history=1000
 set noerrorbells
 set title
-hi LineNr ctermfg=DarkCyan ctermbg=Black
+hi LineNr ctermfg=36 ctermbg=Black
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 
-
 " REMAPPINGS
-:nnoremap <F2> :Vex <ENTER> 
-:nnoremap <F4> :NERDTreeToggle <ENTER> 
+nnoremap <F2> :Vex <ENTER> 
+nnoremap <F4> :NERDTreeToggle <ENTER> 
+noremap K {
+noremap J }
+noremap H ^
+noremap L $
+noremap b %
+noremap q b
+noremap Q B
+noremap <F9> q
+noremap <F10> Q
+noremap B J
+
+nmap >> <Nop>
+nmap << <Nop>
+vmap >> <Nop>
+vmap << <Nop>
+
+nnoremap <Tab>   >>
+nnoremap <S-Tab> <<
+vnoremap <Tab>   >><Esc>gv
+vnoremap <S-Tab> <<<Esc>gv
+
 
 " PLUGINS vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'ryanoasis/vim-devicons'
+Plug 'her/synicons.vim'
 set encoding=UTF-8
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -57,10 +76,17 @@ map <F8> :Files<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver','coc-python']
 Plug 'scrooloose/nerdcommenter'
-" Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-gitgutter'
+highlight GitGutterAdd  ctermfg=46 
+highlight GitGutterChange guifg=#4e4e4e
+highlight GitGutterDelete guifg=#af0000
+"highlight! link SignColumn LineNr
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'StanAngeloff/php.vim'
+Plug 'yggdroot/indentline'
+let g:indentLine_color_term = 239
+"let g:indentLine_char = '|'
 call plug#end()
-
