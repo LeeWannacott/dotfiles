@@ -42,6 +42,7 @@ noremap K {
 noremap J }
 noremap H ^
 noremap L $
+
 noremap b %
 noremap q b
 noremap Q B
@@ -59,6 +60,8 @@ nnoremap <S-Tab> <<
 vnoremap <Tab>   >><Esc>gv
 vnoremap <S-Tab> <<<Esc>gv
 
+nnoremap Y y$
+imap <c-v> <ESC>"+pA
 
 " PLUGINS vim-plug
 call plug#begin('~/.vim/plugged')
@@ -92,6 +95,9 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'StanAngeloff/php.vim'
 Plug 'yggdroot/indentline'
+Plug 'gregsexton/matchtag'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 let g:indentLine_color_term = 239
 "let g:indentLine_char = '|'
 call plug#end()
