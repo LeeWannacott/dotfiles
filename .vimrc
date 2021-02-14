@@ -36,30 +36,23 @@ hi LineNr ctermfg=36 ctermbg=Black
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 
 " REMAPPINGS
-nnoremap <F2> :Vex <ENTER> 
+map <F2> :w! <CR>
+nnoremap <F8> :Vex <ENTER> 
 nnoremap <F4> :NERDTreeToggle <ENTER> 
 noremap K {
 noremap J }
 noremap H ^
 noremap L $
 
-noremap b %
 noremap q b
 noremap Q B
 noremap <F9> q
 noremap <F10> Q
 noremap B J
-
-nmap >> <Nop>
-nmap << <Nop>
-vmap >> <Nop>
-vmap << <Nop>
-
-nnoremap <Tab>   >>
-nnoremap <S-Tab> <<
-vnoremap <Tab>   >><Esc>gv
-vnoremap <S-Tab> <<<Esc>gv
-
+noremap <c-v> p
+noremap b <c-v>
+nnoremap <Tab>   %
+vnoremap <Tab>   %
 nnoremap Y y$
 imap <c-v> <ESC>"+pA
 
