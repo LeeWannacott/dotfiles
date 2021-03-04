@@ -31,35 +31,30 @@ set history=1000
 set noerrorbells
 set title
 set showtabline=2
+set cursorline
+hi CursorLine   cterm=NONE ctermbg=black
 hi TabLineFill ctermfg=black ctermbg=DarkGreen
 hi LineNr ctermfg=36 ctermbg=Black
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 
 " REMAPPINGS
-nnoremap <F2> :Vex <ENTER> 
+map <F2> :w! <CR>
+nnoremap <F8> :Vex <ENTER> 
 nnoremap <F4> :NERDTreeToggle <ENTER> 
 noremap K {
 noremap J }
 noremap H ^
 noremap L $
 
-noremap b %
 noremap q b
 noremap Q B
 noremap <F9> q
 noremap <F10> Q
 noremap B J
-
-nmap >> <Nop>
-nmap << <Nop>
-vmap >> <Nop>
-vmap << <Nop>
-
-nnoremap <Tab>   >>
-nnoremap <S-Tab> <<
-vnoremap <Tab>   >><Esc>gv
-vnoremap <S-Tab> <<<Esc>gv
-
+noremap <c-v> p
+noremap b <c-v>
+nnoremap <Tab>   %
+vnoremap <Tab>   %
 nnoremap Y y$
 imap <c-v> <ESC>"+pA
 
@@ -79,8 +74,7 @@ let g:fzf_action = {
   \}
 map <F8> :Files<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver','coc-python']
-Plug 'scrooloose/nerdcommenter'
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pyright', 'coc-lua', 'coc-vimlsp']
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
@@ -89,15 +83,28 @@ highlight GitGutterAdd  ctermfg=46
 highlight GitGutterChange guifg=#4e4e4e
 highlight GitGutterDelete guifg=#af0000
 "highlight! link SignColumn LineNr
-Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-Plug 'StanAngeloff/php.vim'
-Plug 'yggdroot/indentline'
-Plug 'gregsexton/matchtag'
+Plug 'tpope/vim-fugitive' " Shorter git commands.
+Plug 'mattn/emmet-vim' " Faster boilerplate code.
+Plug 'easymotion/vim-easymotion' " Faster navigation.
+Plug 'StanAngeloff/php.vim' " Support php
+Plug 'yggdroot/indentline' " Shows level of indentation with lines.
+Plug 'gregsexton/matchtag' " Highlights matching tags in html.
+Plug 'justinmk/vim-sneak' " More complicated f. Use s and two keypress to find.
+
+Plug '/home/lee/Desktop/Dogecomments'
+" noremap <leader>c :call Dogecomments() <CR>
+
+Plug 'Xuyuanp/scrollbar.nvim'
+augroup ScrollbarInit
+  autocmd!
+  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+augroup end
+
+let g:highlightedyank_highlight_duration = 200
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' } " Formatting files
 let g:indentLine_color_term = 239
 "let g:indentLine_char = '|'
 call plug#end()
