@@ -33,10 +33,12 @@ set title
 set showtabline=2
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=black
-hi TabLineFill ctermfg=black ctermbg=DarkGreen
-hi LineNr ctermfg=36 ctermbg=Black
+hi TabLineFill ctermfg=black ctermbg=DarkGreen  
+hi LineNr ctermfg=DarkGray ctermbg=Black
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 
+hi ColorColumn ctermbg=black 
+hi CursorLineNR ctermfg=36 ctermbg=black
+
 " REMAPPINGS
 map <F2> :w! <CR>
 nnoremap <F8> :Vex <ENTER> 
@@ -51,8 +53,10 @@ noremap Q B
 noremap <F9> q
 noremap <F10> Q
 noremap B J
-noremap <c-v> p
-noremap b <c-v>
+
+nnoremap <c-v> p
+nnoremap b <c-V>
+
 nnoremap <Tab>   %
 vnoremap <Tab>   %
 nnoremap Y y$
@@ -90,17 +94,25 @@ Plug 'StanAngeloff/php.vim' " Support php
 Plug 'yggdroot/indentline' " Shows level of indentation with lines.
 Plug 'gregsexton/matchtag' " Highlights matching tags in html.
 Plug 'justinmk/vim-sneak' " More complicated f. Use s and two keypress to find.
+Plug 'psliwka/vim-smoothie' " smooth scrolling
+Plug 'jiangmiao/auto-pairs' 
 
-Plug '/home/lee/Desktop/Dogecomments'
-" noremap <leader>c :call Dogecomments() <CR>
+" tab numbering
+Plug 'mkitt/tabline.vim'
+let g:tablineclosebutton=1
 
-Plug 'Xuyuanp/scrollbar.nvim'
-augroup ScrollbarInit
-  autocmd!
-  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
-augroup end
+" statusbar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='deus'
+" let g:airline_theme='minimalist'
+let g:airline_mode_map = {}
+let g:airline_mode_map['ic'] = 'INSERT'
+
+" commenting out code
+Plug '/home/lee/Desktop/nvim-dogecomments'
+" Plug 'leewannacott/nvim-dogecomments'
+Plug 'jeetsukumaran/vim-markology'
 
 let g:highlightedyank_highlight_duration = 200
 " post install (yarn install | npm install) then load plugin only for editing supported files
