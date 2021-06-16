@@ -13,3 +13,5 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # install gnome tweaks to rebind caps lock to escape.
 # install a NerdFont so that devicons works.
+
+# put solarized.vim in .vim/colors
