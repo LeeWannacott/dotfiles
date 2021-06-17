@@ -104,4 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/lee/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/lee/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
