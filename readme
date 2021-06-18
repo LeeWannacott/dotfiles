@@ -1,7 +1,7 @@
 
 To install in $HOME:
 
-```./install.sh $HOME```
+`./install.sh $HOME`
 
 .vimrc file
 # Make nvim use .vimrc in home directory instead of config. /.config/nvim/init.vim
