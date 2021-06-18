@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+set -u
+
+os="$(uname)"
+
+expected_nix_files=(
+    bin/black
+    bin/borg
+    bin/clang-format
+    bin/exercism
+    bin/flake8
+    bin/fzf
+    bin/git
+    bin/gpg
+    bin/htop
+    bin/jq
+    bin/python3
+    bin/rg
+    bin/sqlite3
+    bin/tmux
+    bin/vim
+    bin/wget
+    bin/zsh
+    share/zsh/site-functions/_caffeinate
+)
+
+nix_package_attrs=(
+    nixpkgs.borgbackup
+    nixpkgs.clang-tools
+    nixpkgs.exercism
+    nixpkgs.fzf
+    nixpkgs.gitAndTools.gitFull
+    nixpkgs.gnupg
+    nixpkgs.htop
+    nixpkgs.jq
+    nixpkgs.python3
+    nixpkgs.python3Packages.black
+    nixpkgs.python3Packages.flake8
+    nixpkgs.ripgrep
+    nixpkgs.sqlite-interactive
+    nixpkgs.tmux
+    nixpkgs.vim
+    nixpkgs.wget
+    nixpkgs.zsh
+    nixpkgs.zsh-completions
+)
+
+main() {
+    install_packages
+    verify_installed_packages
+}
+
+install_packages() {
+    nix-env -iA -- "${nix_package_attrs[@]}"
+}
+
+verify_installed_packages() {
+    local exit_code=0
+    for expected_file in "${expected_nix_files[@]}"; do
+        local expected_file_path="${HOME}/.nix-profile/${expected_file}"
+        if ! [ -f "${expected_file_path}" ]; then
+            printf 'error: file %s not found (searched %s)\n' "${expected_file}" "${expected_file_path}"
+            exit_code=1
+        fi
+    done
+    return "${exit_code}"
+}
+
+main

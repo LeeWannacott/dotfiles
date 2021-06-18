@@ -1,5 +1,9 @@
-.vimrc file
 
+To install in $HOME:
+
+```./install.sh $HOME```
+
+.vimrc file
 # Make nvim use .vimrc in home directory instead of config. /.config/nvim/init.vim
 
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
