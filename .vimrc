@@ -5,6 +5,7 @@ colorscheme solarized " Solarized dark
 " set termguicolors
 set autoindent             " use current indent for new lines. 
 filetype plugin indent on   " 
+set spelllang=en_nz
 set clipboard+=unnamedplus " enable past from system: sudo need xsel and xclip
 set backspace=2            " make the backspace behave as most applications
 set display=lastline       " show as much of the line as will fit.
@@ -44,7 +45,7 @@ hi TabLineFill ctermfg=black ctermbg=black
 hi LineNr ctermfg=DarkGray ctermbg=Black
 set colorcolumn=80
 hi ColorColumn ctermbg=black 
-hi CursorLineNR ctermfg=DarkCyan ctermbg=black
+hi CursorLineNR ctermfg=28  ctermbg=black
 set number relativenumber
 " :augroup numbertoggle
 " :  autocmd!

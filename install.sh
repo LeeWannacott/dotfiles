@@ -13,23 +13,12 @@ OUT="$1"
 cd "$HERE"
 
 projects=(
-  backup
-  bash
-  firefox
-  fish
-  fzf
   git
   gnome-terminal
-  iterm
-  login
-  man
   nix
   nixpkgs
-  ssh
-  systemd
-  tmux
   vim
-  xmonad
+  nvim
   zsh
 )
 
