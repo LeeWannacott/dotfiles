@@ -59,7 +59,7 @@ set viminfo+=/200
 " REMAPPINGS
 map <F2> :w! <CR>
 nnoremap <F8> :Vex <ENTER>
-map <F4> :NERDTreeToggle <ENTER>
+map <F4> :Explore <ENTER>
 noremap K {
 noremap J }
 noremap H ^
@@ -94,8 +94,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'her/synicons.vim'
 set encoding=UTF-8
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-let NERDTreeMouseMode=2
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -119,9 +117,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [ "coc-emmet", "coc-css", "coc-html", "coc-json", "coc-lua", "coc-vimlsp","coc-css","coc-clangd","coc-eslint"]
 nmap gd <Plug>(coc-definition)
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
 
 " Plug 'airblade/vim-gitgutter'
 " highlight GitGutterAdd  ctermfg=46
