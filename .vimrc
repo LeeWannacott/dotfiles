@@ -103,14 +103,16 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
 map <F8> :Files<CR>
+
 Plug 'dense-analysis/ale',{'tag':'v3.1.0'}
 Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim'}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
 \}
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -130,7 +132,6 @@ Plug 'StanAngeloff/php.vim' " Support php
 Plug 'yggdroot/indentline' " Shows level of indentation with lines.
 let g:indentLine_color_term = 239  " show indentaion level
 
-Plug 'justinmk/vim-sneak' " More complicated f. Use s and two keypress to find.
 Plug 'mkitt/tabline.vim' " Tab numbering.
 Plug 'dstein64/nvim-scrollview' " Show draggable scrollbar
 Plug 'dstein64/vim-startuptime' " check startuptimes
@@ -148,12 +149,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 
 " Comment out code using my own plugin
 " Plug '/home/lee/Desktop/nvim-dogecomments' " Development pathway.
-
 Plug '/home/lee/Desktop/nvim-snippets' " Development pathway.
 Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
 
 " move lines of code with alt.
 Plug 'matze/vim-move'
+" Plug 'github/copilot.vim'
 
 augroup highlight_yank
     autocmd!
@@ -165,5 +166,6 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' } " Formatting files
 "let g:indentLine_char = '|'
 Plug 'RRethy/vim-illuminate'
 let g:Illuminate_delay = 10
+Plug 'tpope/vim-surround'
 
 call plug#end()
