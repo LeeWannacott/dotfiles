@@ -1,0 +1,7 @@
+{
+  "diagnostic.checkCurrentLine": false,
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.separateRelatedInformationAsDiagnostics": false,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false
+}
