@@ -194,6 +194,9 @@ Plug 'chrisbra/Colorizer'
 Plug 'mg979/vim-visual-multi'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+hi TabLine ctermfg=Blue ctermbg=Yellow
+hi TabLineSel ctermfg=Red ctermbg=Yellow
 call plug#end()
 
 " lua <<EOF
@@ -208,14 +211,17 @@ call plug#end()
 let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+let g:tokyonight_transparent = 0
 
 " Change the "hint" color to the "orange" color, and make the "error" color bright red
 let g:tokyonight_colors = {
   \ 'hint': 'orange',
-  \ 'error': '#ff0000'
+  \ 'error': '#ff0000',
+  \ 'blue': '#FAF9F6',
 \ }
+
 
 " Load the colorscheme
 colorscheme tokyonight
-
 " colorscheme solarized " Solarized dark
+
