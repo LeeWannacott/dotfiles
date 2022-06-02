@@ -29,16 +29,18 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # zsh syntax highlighting
 Simply clone this repository and source the script:
-
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc`
 
 Then, enable syntax highlighting in the current interactive shell:
-
 `source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
 
 
 # zsh auto-suggest/complete Goes in directory: /home/lee/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 `https://github.com/zsh-users/zsh-autosuggestions/blob/master/zsh-autosuggestions.zsh`
+
+# nvm and node (required for CoC)
+install nvm : curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+install node: nvm install node
 
 
