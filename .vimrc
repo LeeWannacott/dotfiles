@@ -1,5 +1,5 @@
 set nocompatible           " vim defaults rather than vi ones. keep at top
-set background=dark " set background in terminal to #032730.
+" set background=dark " set background in terminal to #032730.
   
 
 " sign column no hidie hide
@@ -10,7 +10,7 @@ filetype on
 filetype indent on
 set autoindent             " use current indent for new lines.
 set smartindent
-filetype plugin indent on   "
+filetype plugin indent on
 set spelllang=en_nz
 set clipboard+=unnamedplus " enable paste from system: sudo need xsel and xclip
 set backspace=2            " make the backspace behave as most applications
@@ -52,6 +52,7 @@ set number relativenumber
 set viminfo+=/200
 
 " remappings
+
 map <f2> :w! <cr>
 nnoremap <f5> :vex <enter>
 map <f4> :Texplore <enter>
@@ -70,6 +71,7 @@ vnoremap <unique> \ q
 nnoremap <unique> <Space> %
 vnoremap <unique> <Space> %
 
+
 nnoremap q b
 nnoremap Q B
 nnoremap B J
@@ -83,6 +85,7 @@ nnoremap b <c-V>
 nnoremap Y y$
 imap <c-v> <ESC>"+pA
 nmap <c-s> :w<CR>
+
 imap <c-s> <Esc>:w<CR>a
 " not insert new line on enter if autocomplete window open for intellisense
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>")) " Enter autocomplete
@@ -122,13 +125,13 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 0
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [ "coc-emmet", "coc-css", "coc-html", "coc-json", "coc-lua", "coc-vimlsp","coc-css","coc-clangd","coc-eslint","coc-go"]
+let g:coc_global_extensions = [ "coc-emmet", "coc-css", "coc-html", "coc-json", "coc-lua", "coc-vimlsp","coc-css","coc-clangd","coc-eslint","coc-go","coc-tsserver"]
 nmap gd <Plug>(coc-definition)
-
+" 
 Plug 'airblade/vim-gitgutter'
-highlight GitGutterAdd  ctermfg=46
-highlight GitGutterChange guifg=#4e4e4e
-highlight GitGutterDelete guifg=#af0000
+" highlight GitGutterAdd  ctermfg=46
+" highlight GitGutterChange guifg=#4e4e4e
+" highlight GitGutterDelete guifg=#af0000
 
 " Plug 'tpope/vim-fugitive' " Shorter git commands.
 Plug 'mattn/emmet-vim' " Faster boilerplate code.
@@ -173,14 +176,15 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug '/home/lee/Desktop/nvim-snippets' " Development pathway.
 Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
 
-" move lines of code with alt.
-Plug 'matze/vim-move'
-" let microsoft steal all my data.
-" Plug 'github/copilot.vim'
+Plug 'matze/vim-move' " move lines of code with alt.
+
+" Plug 'github/copilot.vim' " let microsoft steal all my code.
+
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 50})
 augroup END
+
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " Formatting files
 "let g:indentLine_char = '|'
@@ -190,15 +194,18 @@ Plug 'tpope/vim-surround'
 Plug 'preservim/tagbar'
 nmap <F8> :TagbarToggle<CR>
 Plug 'chrisbra/Colorizer'
-
 Plug 'mg979/vim-visual-multi'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug '/home/lee/Desktop/solarizedtokyonight.nvim', { 'branch': 'main' }  " Development pathway.
+" Plug 'leewannacott/solarizedtokyonight.nvim', { 'branch': 'main' }  
+" hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+" hi TabLine ctermfg=Blue ctermbg=Yellow
+" hi TabLineSel ctermfg=Red ctermbg=Yellow
+  "LSP and TreeSitter stuff"
+" Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
-hi TabLine ctermfg=Blue ctermbg=Yellow
-hi TabLineSel ctermfg=Red ctermbg=Yellow
 call plug#end()
-
+" 
 " lua <<EOF
 " require('nvim-treesitter.configs').setup {
   " ensure_installed = "all",
@@ -206,22 +213,18 @@ call plug#end()
   " indent = { enable = true }
 " }
 " EOF
-  
-" Example config in VimScript
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-let g:tokyonight_transparent = 0
+" TreeSitter
+"
 
-" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 0
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+let g:tokyonight_transparent = 1
 let g:tokyonight_colors = {
   \ 'hint': 'orange',
   \ 'error': '#ff0000',
-  \ 'blue': '#FAF9F6',
 \ }
 
-
-" Load the colorscheme
 colorscheme tokyonight
 " colorscheme solarized " Solarized dark
 
