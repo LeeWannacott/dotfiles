@@ -133,7 +133,9 @@ Plug 'airblade/vim-gitgutter'
 " highlight GitGutterChange guifg=#4e4e4e
 " highlight GitGutterDelete guifg=#af0000
 
-" Plug 'tpope/vim-fugitive' " Shorter git commands.
+Plug 'tpope/vim-fugitive' " Shorter git commands.
+nnoremap <Leader>gb :if &filetype ==# 'fugitiveblame'<Bar>quit<Bar>else<Bar>G blame<Bar>endif<CR>
+
 Plug 'mattn/emmet-vim' " Faster boilerplate code.
 
 " adds too much time startup.
@@ -178,7 +180,10 @@ Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
 
 Plug 'matze/vim-move' " move lines of code with alt.
 
-" Plug 'github/copilot.vim' " let microsoft steal all my code.
+Plug 'github/copilot.vim' " let microsoft steal all my code.
+imap <silent><script><expr> <A-Enter> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 
 augroup highlight_yank
     autocmd!
