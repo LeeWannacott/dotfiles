@@ -34,4 +34,11 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 install nvm : curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 install node: nvm install node
 
+# install qljs
+curl https://c.quick-lint-js.com/quick-lint-js-release.key | sudo apt-key add -
+printf '\n# From: https://quick-lint-js.com/install/vim/debian/\ndeb [arch=amd64] https://c.quick-lint-js.com/debian experimental main\n' | sudo tee -a /etc/apt/sources.list.d/quick-lint-js.list
+sudo apt-get update
+sudo apt-get install quick-lint-js quick-lint-js-vim
+
+
 
