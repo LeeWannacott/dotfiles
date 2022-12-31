@@ -41,5 +41,7 @@ printf '\n# From: https://quick-lint-js.com/install/vim/debian/\ndeb [arch=amd64
 sudo apt-get update
 sudo apt-get install quick-lint-js quick-lint-js-vim
 
+# font manager 
+sudo apt install font-manager
 
 
