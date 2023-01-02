@@ -15,12 +15,20 @@ sudo cp .config/nvim/CocConfig.json ~/.config/nvim/CocConfig.json
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+
 # install gnome tweaks for rebinding caps lock
 sudo apt update
 sudo apt upgrade
 sudo apt-add-repository -y universe
 sudo apt install -y gnome-tweaks
 
+# install the GitHub CLI
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
 
 # install zsh && oh-my-zsh.
 sudo apt install -y zsh
@@ -49,18 +57,9 @@ sudo apt install -y font-manager
 sudo mkdir -p /usr/share/fonts/truetype/IBM/ && \
 sudo cp IBMPlexMono-Regular.ttf /usr/share/fonts/truetype/IBM/IBMPlexMono-Regular.ttf
 
-# install gh CLI
-type -p curl >/dev/null || sudo apt install curl -y
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
-
 # zsh syntax highlighting && autosuggestions.
 gh repo clone zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 gh repo clone zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
 # use zsh as default shell.
-chsh -s $(which zsh)
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+sudo chsh -s $(which zsh)
