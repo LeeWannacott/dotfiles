@@ -40,8 +40,8 @@ sudo cp .profile ~/.profile
 # install nvm && node.
 sudo apt-get install -y build-essential checkinstall libssl-dev
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-nvm install node -y 18
-nvm use node -y 18
+nvm install 18
+nvm use 18
 sudo apt install -y npm
 
 # install quick-lint-js.
@@ -58,8 +58,11 @@ sudo mkdir -p /usr/share/fonts/truetype/IBM/ && \
 sudo cp IBMPlexMono-Regular.ttf /usr/share/fonts/truetype/IBM/IBMPlexMono-Regular.ttf
 
 # zsh syntax highlighting && autosuggestions.
-gh repo clone zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-gh repo clone zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 
 # use zsh as default shell.
 sudo chsh -s $(which zsh)
+
+# login to github
+gh auth login
