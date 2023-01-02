@@ -163,7 +163,7 @@ Plug 'mg979/vim-visual-multi'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug '/home/lee/Desktop/solarizedtokyonight.nvim', { 'branch': 'main' }  " Development pathway.
 Plug 'leewannacott/solarizedtokyonight.nvim', { 'branch': 'main' }  
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " need version 0.7 or higher; ubuntu LTS is currently 0.6.1
 call plug#end()
 
 let g:tokyonight_style = "night"
