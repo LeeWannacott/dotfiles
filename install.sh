@@ -65,4 +65,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosu
 sudo chsh -s $(which zsh)
 
 # login to github
+git config --global user.name "LeeWannacott"
+git config --global user.email "WannacottL@gmail.com"
 gh auth login
