@@ -119,6 +119,3 @@ export GOPATH=$HOME/go/
 export GOROOT=/usr/local/go  
 export PATH="$GOROOT/bin:$PATH" 
 export PATH="$PATH:$GOPATH/bin"
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
