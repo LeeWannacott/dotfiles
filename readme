@@ -1,3 +1,4 @@
+
 # install neovim - Ubuntu
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
@@ -37,11 +38,14 @@ nvm install node
 
 # install qljs
 curl https://c.quick-lint-js.com/quick-lint-js-release.key | sudo apt-key add -
-printf '\n# From: https://quick-lint-js.com/install/vim/debian/\ndeb [arch=amd64] https://c.quick-lint-js.com/debian experimental main\n' | sudo tee -a /etc/apt/sources.list.d/quick-lint-js.list
+printf '\n# From: https://quick-lint-js.com/install/vim/debian/\ndeb [arch=amd64] https://c.quick-lint-js.com/debian experimental main\n' | sudo tee /etc/apt/sources.list.d/quick-lint-js.list
 sudo apt-get update
 sudo apt-get install quick-lint-js quick-lint-js-vim
 
 # font manager 
 sudo apt install font-manager
 
+
+# install go - https://go.dev/doc/install
+$ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
 
