@@ -61,7 +61,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-sy
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 
 # use zsh as default shell.
-sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
 
 # login to github
 git config --global user.name "LeeWannacott"
