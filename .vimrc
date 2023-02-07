@@ -74,7 +74,7 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
-noremap<leader>p "_dp
+" noremap<leader>p "_dp
 let @" = expand("%:p") " use reg ''0 to paste current directory
 nnoremap <c-v> p
 nnoremap b <c-V>
@@ -150,7 +150,7 @@ Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
 Plug 'matze/vim-move' " move lines of code with alt.
 Plug 'github/copilot.vim' " let microsoft steal all my code.
 imap <silent><script><expr> <A-Enter> copilot#Accept("\<CR>")
-" let g:copilot_no_tab_map = v:true
+let g:copilot_no_tab_map = v:true
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " Formatting files
 "let g:indentLine_char = '|'
 Plug 'RRethy/vim-illuminate'
