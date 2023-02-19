@@ -65,6 +65,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosu
 chsh -s $(which zsh)
 
 # login to github
+git config --global core.editor "vim"
 git config --global user.name "LeeWannacott"
 git config --global user.email "WannacottL@gmail.com"
 gh auth login
