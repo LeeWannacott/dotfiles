@@ -5,6 +5,10 @@ sudo apt-get update
 sudo apt upgrade
 sudo apt-get install -y neovim
 
+# global clipboard
+sudo apt install -y xsel
+sudo apt install -y xclip
+
 # point nvim vimrc location to HOME/vimrc and add CocSettings.
 sudo cp .vimrc ~/.vimrc
 mkdir -p ~/.config/nvim && \
