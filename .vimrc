@@ -89,6 +89,7 @@ inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>")) " Enter autocomplete
 
 
 " PLUGINS vim-plug
+let g:ale_javascript_quick_lint_js_experimental_typescript = 1
 call plug#begin('~/.vim/plugged')
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -99,11 +100,19 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+noremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<cr>
+" or                                , { 'branch': '0.1.x' }
 Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim'}
 Plug 'dense-analysis/ale',{'tag':'v3.1.0'}
 let ale_linters_explicit = 'true'
 let g:ale_javascript_quick_lint_js_executable = '/usr/bin/quick-lint-js'
-let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['tslint'] }
+let g:ale_linters = { 'javascript': ['eslint','quick-lint-js'], 'typescript': ['quick-lint-js','tslint'] }
 let g:ale_lint_delay = 0
 let g:ale_lint_on_text_changed = 'always'
 if exists('#ALEEvents')
@@ -114,8 +123,11 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save = 0
+
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [ "coc-emmet", "coc-css", "coc-html", "coc-json", "coc-lua", "coc-vimlsp","coc-css","coc-clangd","coc-eslint","coc-go","coc-tsserver"]
+
 nmap gd <Plug>(coc-definition)
 Plug 'airblade/vim-gitgutter'
 " highlight GitGutterAdd  ctermfg=46 highlight GitGutterChange guifg=#4e4e4e highlight GitGutterDelete guifg=#af0000
@@ -143,18 +155,18 @@ Plug 'jparise/vim-graphql'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_doc_keywordprg_enabled = 0 " disable go docs so can use K
 " preview .MD files
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Plug '/home/lee/Desktop/nvim-dogecomments' " Development pathway.
 " Plug '/home/lee/Desktop/nvim-snippets' " Development pathway.
 Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
 Plug 'matze/vim-move' " move lines of code with alt.
 Plug 'github/copilot.vim' " let microsoft steal all my code.
 imap <silent><script><expr> <A-Enter> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+" let g:copilot_no_tab_map = v:true
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " Formatting files
 "let g:indentLine_char = '|'
 Plug 'RRethy/vim-illuminate'
-let g:Illuminate_delay = 0
+let g:Illuminate_delay = 5
 Plug 'tpope/vim-surround'
 Plug 'preservim/tagbar'
 nmap <F8> :TagbarToggle<CR>
