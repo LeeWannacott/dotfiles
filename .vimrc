@@ -65,8 +65,8 @@ nnoremap <unique> \ q
 vnoremap <unique> \ q
 nnoremap <unique> <Space> %
 vnoremap <unique> <Space> %
-nnoremap q b
-nnoremap Q B
+noremap q b
+noremap Q B
 nnoremap B J
 vnoremap B J
 " window navigation
