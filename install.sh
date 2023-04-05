@@ -6,6 +6,9 @@ sudo apt-get update
 sudo apt upgrade
 sudo apt-get install -y neovim
 
+# for live_grep in telescope
+ sudo apt-get install -y ripgrep
+
 # global clipboard
 sudo apt install -y xsel
 sudo apt install -y xclip
