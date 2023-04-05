@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # install nvim
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt upgrade
 sudo apt-get install -y neovim
