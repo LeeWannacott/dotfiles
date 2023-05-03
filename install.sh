@@ -76,4 +76,5 @@ chsh -s $(which zsh)
 git config --global core.editor "vim"
 git config --global user.name "LeeWannacott"
 git config --global user.email "WannacottL@gmail.com"
+git config --global init.defaultBranch "master"
 gh auth login
