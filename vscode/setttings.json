@@ -1,0 +1,16 @@
+{
+    "editor.fontSize": 18,
+    "editor.fontFamily": "IBM Plex Mono",
+    "debug.console.fontSize": 18,
+    "markdown.preview.fontSize": 18,
+    "interactiveSession.editor.fontSize": 18,
+    "scm.inputFontSize": 18,
+    "go.toolsManagement.autoUpdate": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "vim.vimrc.enable": true,
+    "vim.statusBarColors.normal": "",
+    "vim.highlightedyank.duration": 50,
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "workbench.colorTheme": "Tokyo Night"
+}
