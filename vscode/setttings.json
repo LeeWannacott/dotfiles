@@ -1,5 +1,8 @@
 {
     "editor.fontSize": 18,
+    "workbench.colorCustomizations": {
+        "editor.background": "#000"
+    },
     "editor.fontFamily": "IBM Plex Mono",
     "debug.console.fontSize": 18,
     "markdown.preview.fontSize": 18,
