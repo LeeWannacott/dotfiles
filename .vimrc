@@ -67,10 +67,6 @@ let mapleader = "\<tab>"
 " tabs
 nnoremap { gT
 nnoremap } gt
-nnoremap <C-D> }
-nnoremap <C-U> {
-vnoremap <C-D> }
-vnoremap <C-U> {
 nnoremap <unique> \ q
 vnoremap <unique> \ q
 nnoremap <unique> <Space> %
@@ -81,8 +77,8 @@ nnoremap B J
 vnoremap B J
 " window navigation
 nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
+nnoremap <C-D> <C-W>j
+nnoremap <C-U> <C-W>k
 nnoremap <C-L> <C-W>l
 " noremap<leader>p "_dp
 let @" = expand("%:p") " use reg ''0 to paste current directory
