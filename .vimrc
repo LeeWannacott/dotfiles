@@ -53,14 +53,24 @@ augroup END
 map <f2> :w! <cr>
 nnoremap <f5> :vex <enter>
 map <f4> :Texplore <enter>
-noremap K {
-noremap J }
+noremap K <C-U>
+noremap J <C-D>
+vnoremap K <C-U>
+vnoremap J <C-D>
+noremap <C-K> {
+noremap <C-J> }
+vnoremap <C-K> {
+vnoremap <C-J> }
 noremap H ^
 noremap L $
 let mapleader = "\<tab>"
 " tabs
 nnoremap { gT
 nnoremap } gt
+nnoremap <C-D> }
+nnoremap <C-U> {
+vnoremap <C-D> }
+vnoremap <C-U> {
 nnoremap <unique> \ q
 vnoremap <unique> \ q
 nnoremap <unique> <Space> %
@@ -88,6 +98,9 @@ imap <c-s> <Esc>:w<CR>a
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>")) " Enter autocomplete
 
 
+set list
+set listchars+=space:⋅
+set listchars+=eol:↴
 " PLUGINS vim-plug
 let g:ale_javascript_quick_lint_js_experimental_typescript = 1
 call plug#begin('~/.vim/plugged')
@@ -102,6 +115,7 @@ let g:fzf_action = {
   \}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+" Remap Ctrl+p and Ctrl+n to Ctrl+j and Ctrl+k in Telescope
 noremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -126,19 +140,25 @@ let g:ale_fix_on_save = 0
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [ "coc-emmet", "coc-css", "coc-html", "coc-json", "coc-lua", "coc-vimlsp","coc-css","coc-clangd","coc-eslint","coc-go","coc-tsserver"]
+let g:coc_global_extensions = [ "coc-emmet", "coc-css", "coc-html", "coc-json", "coc-lua", "coc-vimlsp","coc-css","coc-clangd","coc-eslint","coc-go","coc-tsserver" ,"coc-godot"]
 
 nmap gd <Plug>(coc-definition)
 Plug 'airblade/vim-gitgutter'
 " highlight GitGutterAdd  ctermfg=46 highlight GitGutterChange guifg=#4e4e4e highlight GitGutterDelete guifg=#af0000
 Plug 'tpope/vim-fugitive' " Shorter git commands.
 nnoremap <Leader>gb :if &filetype ==# 'fugitiveblame'<Bar>quit<Bar>else<Bar>G blame<Bar>endif<CR>
-Plug 'mattn/emmet-vim' " Faster boilerplate code.
+" Plug 'mattn/emmet-vim' " Faster boilerplate code.
 " adds too much time startup.
 " Plug 'easymotion/vim-easymotion' " Faster navigation.
 Plug 'StanAngeloff/php.vim' " Support php
-Plug 'yggdroot/indentline' " Shows level of indentation with lines.
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+let g:indent_blankline_space_char_blankline = " "
+let g:indent_blankline_show_current_context = v:true
+let g:indent_blankline_show_current_context_start = v:true
 let g:indentLine_color_term = 239  " show indentation level
+
 Plug 'mkitt/tabline.vim' " Tab numbering.
 let g:tablineclosebutton=1
 Plug 'dstein64/nvim-scrollview' " Show draggable scrollbar
@@ -151,27 +171,29 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
+Plug 'habamax/vim-godot'
 " Go development.
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_doc_keywordprg_enabled = 0 " disable go docs so can use K
 " preview .MD files
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-" Plug '/home/lee/Desktop/nvim-dogecomments' " Development pathway.
+Plug '/home/lee/Desktop/nvim-dogecomments' " Development pathway.
 " Plug '/home/lee/Desktop/nvim-snippets' " Development pathway.
-Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
+" Plug 'leewannacott/nvim-dogecomments' " Install from my github repo
 Plug 'matze/vim-move' " move lines of code with alt.
-Plug 'github/copilot.vim' " let microsoft steal all my code.
-imap <silent><script><expr> <A-Enter> copilot#Accept("\<CR>")
+
+" Plug 'github/copilot.vim' " let microsoft steal all my code.
+" imap <silent><script><expr> <A-Enter> copilot#Accept("\<CR>")
+
 " let g:copilot_no_tab_map = v:true
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " Formatting files
 "let g:indentLine_char = '|'
 Plug 'RRethy/vim-illuminate'
 let g:Illuminate_delay = 5
 Plug 'tpope/vim-surround'
-Plug 'preservim/tagbar'
-nmap <F8> :TagbarToggle<CR>
 Plug 'chrisbra/Colorizer'
 Plug 'mg979/vim-visual-multi'
+Plug '/home/lee/Desktop/nvim-matrix-indent'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug '/home/lee/Desktop/solarizedtokyonight.nvim', { 'branch': 'main' }  " Development pathway.
 Plug 'leewannacott/solarizedtokyonight.nvim', { 'branch': 'main' }  
